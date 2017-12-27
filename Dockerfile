@@ -49,8 +49,10 @@ RUN pip install pytest-cov==2.5.1
 # https://pytest-django.readthedocs.io/en/latest/changelog.html
 RUN pip install pytest-django==3.1.2
 
+# https://niwinz.github.io/django-redis/latest/#_supported_django_redis_versions
+RUN pip install django-redis==4.8.0
+
 # RUN pip install django-grappelli==2.8.1
-# RUN pip install django-redis==4.4.4
 # RUN pip install rollbar==0.13.8
 
 COPY ./requirements.txt /src/requirements.txt

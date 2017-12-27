@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-# import os
+import os
+
+DEFAULT_REDIS_CONN = os.environ.get('DEFAULT_REDIS_CONN', 'redis://127.0.0.1:6379/0')
+MONITOR_REDIS_CONN = os.environ.get('MONITOR_REDIS_CONN', 'redis://127.0.0.1:6379/9')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -65,6 +68,22 @@ TEMPLATES = [
 DATABASES = {
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': DEFAULT_REDIS_CONN,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    },
+    'monitor': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': MONITOR_REDIS_CONN,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
