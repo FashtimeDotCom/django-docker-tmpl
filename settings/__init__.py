@@ -36,6 +36,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'settings.urls'
 
+# https://docs.djangoproject.com/en/1.8/ref/settings/#append-slash
+# only used if CommonMiddleware is installed
+APPEND_SLASH = True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
