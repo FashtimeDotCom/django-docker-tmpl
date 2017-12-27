@@ -5,7 +5,7 @@ debug:
 	docker-compose run --service-ports web /bin/bash
 
 test:
-	PYTHONPATH=. pytest --cov ./ --cov-report term-missing:skip-covered --capture=no tests
+	pytest --cov ./ --cov-report term-missing:skip-covered --capture=no -p no:cacheprovider
 
 server:
 	$(PY) manage.py runserver 0.0.0.0:8000

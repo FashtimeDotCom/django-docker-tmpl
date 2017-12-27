@@ -21,6 +21,7 @@ dist/
 .coverage
 .tox
 nosetests.xml
+.cache/
 
 # Translations
 *.mo
