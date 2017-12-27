@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 
+from .constants import *  # noqa F403
+
 DEFAULT_REDIS_CONN = os.environ.get('DEFAULT_REDIS_CONN', 'redis://127.0.0.1:6379/0')
 MONITOR_REDIS_CONN = os.environ.get('MONITOR_REDIS_CONN', 'redis://127.0.0.1:6379/9')
 
@@ -135,7 +137,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework.filters.DjangoFilterBackend',
+        'django_filters.rest_framework.DjangoFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'utils.pagination.BasePagination',
     # 'DATETIME_FORMAT': DATETIME_FORMAT,
