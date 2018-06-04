@@ -30,6 +30,22 @@ root@django-docker:/src# make server
 access [http://127.0.0.1:8000/heartbeat/](http://127.0.0.1:8000/heartbeat/) in browser.
 
 
+## Debug Tools
+
+#### HTTP Mock
+
+```bash
+$ cd deploy
+$ make build
+$ make run
+```
+
+access [http://127.0.0.1:5051/heartbeat/](http://127.0.0.1:5051/heartbeat/) to confirm it is working
+
+
+then we can add new API and fake data inside to debug with
+
+
 ## FAQ
 
 #### settings.DATABASES is improperly configured.
