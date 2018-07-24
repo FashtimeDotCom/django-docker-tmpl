@@ -56,6 +56,19 @@ MongoDB 容器启动时，可以 restore database dump。
 docker-compose 拉起环境是，会自动 restore MongoDB database。
 
 
+#### MySQL / MongoDB / ES 等依赖
+
+默认不会随着 web 服务的 container 一起启动。
+
+如果项目需要，更新下 docker-compose.yml depends_on
+
+可选的服务列表:
+
+- MySQL
+- MongoDB
+- ES
+
+
 ## FAQ
 
 #### settings.DATABASES is improperly configured.

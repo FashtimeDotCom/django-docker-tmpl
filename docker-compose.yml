@@ -34,3 +34,19 @@ services:
       - /mnt/data/proj-name/dump:/mnt/data/dump
     ports:
       - 27010:27017
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+    ports:
+      - 3300:3306
+
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+    ports:
+      - 9210:9200
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - xpack.security.enabled=false
