@@ -9,7 +9,7 @@ services:
       #  - PIP_HOST=host
       #  - PIP_ROOT_URL=url
     ports:
-      - "8000:8000"
+      - 8000:8000
     volumes:
       - .:/src
     environment:
@@ -25,3 +25,12 @@ services:
   redis:
     # image: redis:3.2.4
     image: redis:2.8.23
+    ports:
+      - 6370:6379
+
+  mongo:
+    build: ./deploy/mongo
+    volumes:
+      - /mnt/data/proj-name/dump:/mnt/data/dump
+    ports:
+      - 27010:27017

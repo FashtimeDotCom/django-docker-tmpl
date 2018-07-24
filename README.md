@@ -46,6 +46,16 @@ access [http://127.0.0.1:5051/heartbeat/](http://127.0.0.1:5051/heartbeat/) to c
 then we can add new API and fake data inside to debug with
 
 
+#### MongoDB
+
+MongoDB 容器启动时，可以 restore database dump。
+
+1. dump MongoDB database，例如，dump 文件在 '/mnt/data/proj-name/dump' 目录下，proj-name 建议改成项目名字。
+2. docker-compose.yml 里将 '/mnt/data/proj-name/dump' 改成 dump 文件夹位置
+
+docker-compose 拉起环境是，会自动 restore MongoDB database。
+
+
 ## FAQ
 
 #### settings.DATABASES is improperly configured.
