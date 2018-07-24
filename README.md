@@ -66,7 +66,7 @@ docker-compose 拉起环境是，会自动 restore MongoDB database。
 
 - MySQL
 - MongoDB
-- ES
+- ES & Kibana
 
 
 ## FAQ

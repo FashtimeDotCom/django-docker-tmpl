@@ -43,10 +43,19 @@ services:
       - 3300:3306
 
   es:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.1
     ports:
       - 9210:9200
     environment:
       - http.host=0.0.0.0
       - transport.host=127.0.0.1
       - xpack.security.enabled=false
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.5.1
+    ports:
+      - 5600:5601
+    environment:
+      - ELASTICSEARCH_URL=http://es:9200
+    depends_on:
+      - es
