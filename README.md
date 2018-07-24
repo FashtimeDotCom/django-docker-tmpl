@@ -37,6 +37,8 @@ access [http://127.0.0.1:8000/heartbeat/](http://127.0.0.1:8000/heartbeat/) in b
 - MySQL
 - MongoDB
 - ES & Kibana
+- kafka & kafka-manager
+- zookeeper
 
 默认不会随着 web 服务的 container 一起启动。
 
@@ -61,6 +63,15 @@ $ make kibana
 ```
 
 then, open [http://127.0.0.1:5600/](http://127.0.0.1:5600/) in browser to play with Kibana
+
+
+#### Kafka-Manager
+
+```bash
+$ make kafka-manager
+```
+
+then, open [http://127.0.0.1:9100/](http://127.0.0.1:9100/) in browser to play with Kafka-Manager
 
 
 ## Debug Tools

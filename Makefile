@@ -22,6 +22,9 @@ clean:
 kibana:
 	docker-compose run --service-ports kibana
 
+kafka-manager:
+	docker-compose up kafka-manager
+
 
 .PHONY: debug test server
 .PHONY: build clean
