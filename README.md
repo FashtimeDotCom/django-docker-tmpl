@@ -11,7 +11,7 @@ git clone https://github.com/JackonYang/django-docker-tmpl.git $project_name
 cd $project_name
 rm -rf .git
 # Update README
-git init && git add . && git commit -m'init project using https://github.com/JackonYang/django-docker-tmpl.git v0.1'
+git init && git add . && git commit -m'init project using https://github.com/JackonYang/django-docker-tmpl.git v0.2'
 git push -f xxx master
 ```
 
@@ -30,6 +30,39 @@ root@django-docker:/src# make server
 access [http://127.0.0.1:8000/heartbeat/](http://127.0.0.1:8000/heartbeat/) in browser.
 
 
+## Services
+
+可选的服务列表:
+
+- MySQL
+- MongoDB
+- ES & Kibana
+
+默认不会随着 web 服务的 container 一起启动。
+
+如果项目需要，更新下 docker-compose.yml 的 depends_on
+
+
+#### MongoDB Dump & Restore
+
+MongoDB 容器启动时，可以 restore database dump。
+
+用法：
+
+1. dump MongoDB database，例如，dump 文件在 '/mnt/data/proj-name/dump' 目录下，proj-name 建议改成项目名字。
+2. docker-compose.yml 里将 '/mnt/data/proj-name/dump' 改成 dump 文件夹位置
+
+docker-compose 拉起环境时，会自动 restore。
+
+#### Kibana
+
+```bash
+$ make kibana
+```
+
+then, open [http://127.0.0.1:5600/](http://127.0.0.1:5600/) in browser to play with Kibana
+
+
 ## Debug Tools
 
 #### HTTP Mock
@@ -44,29 +77,6 @@ access [http://127.0.0.1:5051/heartbeat/](http://127.0.0.1:5051/heartbeat/) to c
 
 
 then we can add new API and fake data inside to debug with
-
-
-#### MongoDB
-
-MongoDB 容器启动时，可以 restore database dump。
-
-1. dump MongoDB database，例如，dump 文件在 '/mnt/data/proj-name/dump' 目录下，proj-name 建议改成项目名字。
-2. docker-compose.yml 里将 '/mnt/data/proj-name/dump' 改成 dump 文件夹位置
-
-docker-compose 拉起环境是，会自动 restore MongoDB database。
-
-
-#### MySQL / MongoDB / ES 等依赖
-
-默认不会随着 web 服务的 container 一起启动。
-
-如果项目需要，更新下 docker-compose.yml depends_on
-
-可选的服务列表:
-
-- MySQL
-- MongoDB
-- ES & Kibana
 
 
 ## FAQ
