@@ -25,7 +25,18 @@ kibana:
 kafka-manager:
 	docker-compose up kafka-manager
 
+kafka:
+	docker-compose run --service-ports kafka
+
+redis:
+	docker-compose up -d redis
+
+redis-client:
+	docker-compose run --service-ports redis-client redis-cli -h redis -p 6379
+
 
 .PHONY: debug test server
 .PHONY: build clean
 .PHONY: kibana kafka-manager
+.PHONY: kafka
+.PHONY: redis redis-client
